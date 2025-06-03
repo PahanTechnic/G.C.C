@@ -70,7 +70,7 @@ const VisionMission = () => {
     <section className="Vision_Mission py-20 sinhala relative  bg-gradient-to-b from-white to-green-50 overflow-hidden">
       <div className="max-w-6xl mx-auto px-6 text-center">
         <p className="inline-block text-green-700 text-lg font-semibold mb-3 bg-green-100 px-4 py-1 rounded-full">
-          Vision Mission
+          👁️ Vision Mission
         </p>
         <h1 className="text-4xl font-extrabold mb-4 text-green-700">
           අපගේ දැක්ම සහ මෙහෙවර

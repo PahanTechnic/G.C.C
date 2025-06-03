@@ -48,13 +48,13 @@ export default function SidebarBannerSlider() {
   // Auto play interval manager with useEffect
   useEffect(() => {
     let intervalId = null;
-    
+
     if (isAutoPlaying && !isHovering) {
       intervalId = setInterval(() => {
         nextSlide();
       }, 5000);
     }
-    
+
     return () => {
       if (intervalId) {
         clearInterval(intervalId);
@@ -74,11 +74,10 @@ export default function SidebarBannerSlider() {
       {slides.map((slide, i) => (
         <div
           key={i}
-          className={`absolute inset-0 w-full transition-all duration-1000 ease-in-out ${
-            i === currentIndex
+          className={`absolute inset-0 w-full transition-all duration-1000 ease-in-out ${i === currentIndex
               ? "opacity-100 z-20"
               : "opacity-0 z-10"
-          }`}
+            }`}
         >
           <img
             src={slide.image}
@@ -88,14 +87,13 @@ export default function SidebarBannerSlider() {
 
           {/* Blur overlay on button hover - removed green color */}
           <div
-            className={`absolute inset-0 transition-all duration-500 ${
-              isBtnHovering ? "backdrop-blur-sm" : ""
-            }`}
+            className={`absolute inset-0 transition-all duration-500 ${isBtnHovering ? "backdrop-blur-sm" : ""
+              }`}
           ></div>
 
           {/* Content */}
           <div className="absolute inset-0 flex items-center justify-center flex-col text-center text-white px-4 z-30">
-            <h2 
+            <h2
               data-aos={slide.animation}
               data-aos-duration="1000"
               className="text-3xl md:text-5xl font-bold mb-4 drop-shadow-lg"
@@ -116,7 +114,7 @@ export default function SidebarBannerSlider() {
       ))}
 
       {/* Navigation Arrows - Redesigned */}
-      <div 
+      <div
         className="absolute top-1/2 left-4 transform -translate-y-1/2 z-40"
         data-aos="fade-right"
         data-aos-anchor=".slider-container"
@@ -130,7 +128,7 @@ export default function SidebarBannerSlider() {
           </svg>
         </button>
       </div>
-      <div 
+      <div
         className="absolute top-1/2 right-4 transform -translate-y-1/2 z-40"
         data-aos="fade-left"
         data-aos-anchor=".slider-container"
@@ -146,27 +144,29 @@ export default function SidebarBannerSlider() {
       </div>
 
       {/* Dot Indicators - Redesigned */}
-      <div 
-        className="absolute bottom-5 left-[45%] transform -translate-x-1/2 flex gap-3 z-40 bg-black/30 backdrop-blur-sm px-4 py-2 justify-center items-center rounded-full"
+      <div
+        className="absolute bottom-5  xs:left-1/2 lg:left-[45%] transform -translate-x-1/2 flex gap-3 z-40 bg-black/30 backdrop-blur-sm px-4 py-2 justify-center items-center rounded-full max-w-[90%] sm:max-w-fit"
         data-aos="fade-up"
         data-aos-delay="500"
       >
+        {/* Content here */}
+
+
         {slides.map((_, i) => (
           <button
             key={i}
             onClick={() => setCurrentIndex(i)}
-            className={`transition-all duration-300 ${
-              i === currentIndex 
-                ? "bg-white h-3 w-6 rounded-full" 
+            className={`transition-all duration-300 ${i === currentIndex
+                ? "bg-white h-3 w-6 rounded-full"
                 : "bg-white/40 h-3 w-3 rounded-full hover:bg-white/70"
-            }`}
+              }`}
             aria-label={`Go to slide ${i + 1}`}
           ></button>
         ))}
       </div>
 
       {/* Play/Pause Toggle Button */}
-      <div 
+      <div
         className="absolute top-4 right-4 z-40"
         data-aos="fade-down"
         data-aos-delay="200"
